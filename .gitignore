@@ -1,0 +1,3 @@
+# Ignore Sublime Text Project and Workspace Files
+*.sublime-project
+*.sublime-workspace
