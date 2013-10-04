@@ -1,2 +1,3 @@
 # TODO
- * Finir la mise en place des settings
+ * synced_folder NFS
+ * multi-machine

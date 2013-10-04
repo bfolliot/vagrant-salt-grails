@@ -31,21 +31,43 @@ Vagrant.configure("2") do |config|
 
   config.vbguest.no_remote = false
 
-  config.vm.box = "Ubuntu-raring"
+  config.vm.box = settings[:box] if settings[:box]
 
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/547671/thinkstack-raring64.box"
+  config.vm.box_url = settings[:url] if settings[:url]
 
-  config.vm.hostname = "grails-vm"
+  config.vm.hostname = settings[:hostname] if settings[:hostname]
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
   config.hostmanager.ignore_private_ip = false
   config.hostmanager.include_offline = true
-  config.hostmanager.aliases = "grails.dev"
+  if settings[:host_aliases]
+    config.hostmanager.aliases = settings[:host_aliases]
+  end
 
-  config.vm.network :private_network, ip: "192.168.50.20"
+  config.vm.network :private_network, ip: settings[:ip] if settings[:ip]
 
-  config.vm.synced_folder "./Shares/Projects", "/home/vagrant/Projects"
+
+  config.vm.provider :virtualbox do |v|
+    # This setting gives the VM 1024MB of RAM instead of the default 384.
+    if settings[:ram]
+      v.customize ["modifyvm", :id, "--memory", settings[:ram] ]
+    end
+    # v.customize ["modifyvm", :id, "--name", settings[:name] if settings[:name]]
+
+    # This setting makes it so that network access from inside the vagrant guest
+    # is able to resolve DNS using the hosts VPN connection.
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+
+    # This option lets the real-time clock (RTC) operate in UTC time (see the section called “"Motherboard" tab”).
+     v.customize ["modifyvm", :id, "--rtcuseutc", "on"]
+  end 
+
+  if settings[:share_folders]
+    settings[:share_folders].each do |sf_name, sf|
+      config.vm.synced_folder sf[:host_path], sf[:guest_path]
+    end
+  end
   config.vm.synced_folder "./Shares/srv", "/srv"
 
   
@@ -59,9 +81,11 @@ Vagrant.configure("2") do |config|
 
     salt.run_highstate = true
 
-    salt.verbose = true
+    salt.verbose = (settings[:salt_verbose] ? settings[:salt_verbose] : false)
 
   end
+
+  config.vm.provision :hostmanager
 
 
 
