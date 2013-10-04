@@ -1,0 +1,35 @@
+hostname: 'web1.myproject.dev'
+ip: '20.20.20.10'
+box: 'precise64'
+url: 'http://files.vagrantup.com/precise64.box'
+forwards:
+  http:
+    from: 80
+    to: 8080
+  mysql:
+    from: 3306
+    to: 3306
+  xdebug:
+    from: 9000
+    to: 9000
+  memcached:
+    from: 11211
+    to: 11211
+  livereload:
+    from: 35729
+    to: 35729
+share_folders:
+  projects:
+    host_path: './shares/projects'
+    guest_path: '/home/vagrant/projects'
+  logs:
+    host_path: './shares/www_logs'
+    guest_path: '/home/vagrant/www_logs'
+  db_dump:
+    host_path: './shares/db_dumps'
+    guest_path: '/home/vagrant/db_dumps/'
+host_aliases: 'myproject.dev www.myproject.dev mysql.myproject.dev phpmyadmin.myproject.dev'
+ram: 1024
+timezone: 'Asia/Seoul'
+provisioner: 'salt'
+salt_verbose: true
