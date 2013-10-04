@@ -1,3 +1,10 @@
 # Ignore Sublime Text Project and Workspace Files
 *.sublime-project
 *.sublime-workspace
+
+# Ignore projects files
+Shares/Projects/*
+!Shares/Projects/README.md
+
+# Ignore vagrant files
+.vagrant
