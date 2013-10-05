@@ -1,11 +1,11 @@
-hostname: 'myproject.dev'
-ip: '20.20.20.10'
+hostname: 'mygrailsproject.dev'
+ip: '20.20.20.20'
 box: 'Ubuntu-raring'
 url: 'https://dl.dropboxusercontent.com/u/547671/thinkstack-raring64.box'
 share_folders:
   projects:
     host_path: './Shares/Projects'
     guest_path: '/home/vagrant/Projects'
-host_aliases: 'myproject.dev www.myproject.dev mysql.myproject.dev phpmyadmin.myproject.dev'
+host_aliases: 'mygrailsproject.dev'
 ram: 2048
 salt_verbose: true

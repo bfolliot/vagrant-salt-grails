@@ -1,6 +1,8 @@
-# vagrant-salt
+# Vagrant Salt Grails
 
-Create basic vagrant config with salt
+Create grails server with Vagrant and Grails
+Based on [Vagrant Salt Base](https://github.com/bfolliot/vagrant-salt-base)
+
 
 ## Requirements:
  * [Vagrant Hostmanager Plugin](https://github.com/smdahlen/vagrant-hostmanager)
@@ -9,7 +11,3 @@ Create basic vagrant config with salt
 ## Additional Optional Vagrant Plugins:
 - [Vagrant VbGuest](https://github.com/dotless-de/vagrant-vbguest)
 - [Vagrant Box Updater](https://github.com/spil-ruslan/vagrant-box-updater)
-
-## Inspired from
- * [Guillaume Macaire - SaltStack Masterless Template](https://github.com/gmacaire/saltstack-masterless-template)
- * [David Lonjon -Vagrant Salt Lamp](https://github.com/davidlonjon/vagrant-salt-lamp)
