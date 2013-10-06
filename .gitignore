@@ -9,6 +9,6 @@ Shares/Projects/*
 # Ignore vagrant files
 .vagrant
 
-# Ignore srv files
-Shares/srv/*
-!Shares/srv/salt
+# Ignore grails files
+Shares/srv/grails/*
+!Shares/srv/grails/README.md

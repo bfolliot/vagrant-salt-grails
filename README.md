@@ -30,9 +30,7 @@ Based on [Vagrant Salt Base](https://github.com/bfolliot/vagrant-salt-base)
 
 `vagrant plugin install vagrant-hostmanager`
 
-6/ Add grails in /Shares/srv (Change vx.x.x to your grails version)
-
-`git clone -b vx.x.x https://github.com/grails/grails-core.git Shares/srv/grails`
+6/ [Download](http://grails.org/download) and extract grails in Shares/srv/grails
 
 7/ Edit settings.yml
 

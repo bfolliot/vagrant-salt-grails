@@ -1,0 +1,1 @@
+[Download](http://grails.org/download) and extract grails here
