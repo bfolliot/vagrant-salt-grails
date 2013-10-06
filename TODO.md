@@ -1,4 +1,3 @@
 # TODO
- * Mise en place du JDK JAVA
- * Mise en place de grails
- * Pouvoir choisir les versions du JDK et de Grails
+ * Améliorer l'installation de mysql (pouvoir le configurer)
+ * Automatisation de la mise en place des bases de données

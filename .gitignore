@@ -8,3 +8,7 @@ Shares/Projects/*
 
 # Ignore vagrant files
 .vagrant
+
+# Ignore srv files
+Shares/srv/*
+!Shares/srv/salt
